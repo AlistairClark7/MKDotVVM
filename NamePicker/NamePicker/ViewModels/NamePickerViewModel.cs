@@ -36,8 +36,9 @@ namespace NamePicker.ViewModels
         public string ErrorMessage { get; set; }
 
 	    public void AddName()
-	    {
-	        var newGuid = Guid.NewGuid();
+        {
+            CleanUp();
+            var newGuid = Guid.NewGuid();
 	        var name = new MeetupMember
 	        {
 	            Id = newGuid,
@@ -47,8 +48,9 @@ namespace NamePicker.ViewModels
 	    }
 
 	    public void RemoveName(Guid id)
-	    {
-	        if (SuperSecretPassword != WebConfigurationManager.AppSettings["SuperSecretPassword"])
+        {
+            CleanUp();
+            if (SuperSecretPassword != WebConfigurationManager.AppSettings["SuperSecretPassword"])
 	        {
 	            ErrorMessage = "Nice try!";
                 return;
@@ -56,19 +58,18 @@ namespace NamePicker.ViewModels
 
             MeetupMember removed;
 	        Meetup.Members.TryRemove(id, out removed);
-	        CleanUp();
 	    }
 
 	    public void PickWinner()
         {
+            CleanUp();
+
             var contenstants = Meetup.Members.Values.Where(m => !m.HasWon).ToList();
             if (!contenstants.Any())
 	        {
 	            ErrorMessage = "We need some contenstants!";
                 return;
 	        }
-
-            CleanUp();
 
             var random = new Random();
 
