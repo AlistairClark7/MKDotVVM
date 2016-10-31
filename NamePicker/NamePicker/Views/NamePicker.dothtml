@@ -26,11 +26,14 @@
         <br/>
         <div style="color: red;">
             <dot:Validator Value="{value: NewName}">
-                Name is required
+                <h1>Please enter a name!</h1>
             </dot:Validator>
-            {{value: ErrorMessage}}
+            <h1>{{value: ErrorMessage}}</h1>
         </div>
-        <dot:TextBox Text="{value: NewName}" /> <dot:Button Text="Add Name" Click="{command: AddName()}"></dot:Button>
+        <br/>
+        <dot:Button Text="Pick Winner!" Validation.Enabled="false" Click="{command: PickWinner()}"></dot:Button>
+        <h1 style="color: green">{{value: Winner}}</h1>
+         
     </div>
 
 </dot:Content>
