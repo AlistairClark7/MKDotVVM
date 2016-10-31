@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.ViewModel;
 using NamePicker.Models;
 using System.Threading.Tasks;
+using DotVVM.Framework.ViewModel.Validation;
+using Validation = DotVVM.Framework.Controls.Validation;
 
 namespace NamePicker.ViewModels
 {
@@ -21,7 +24,10 @@ namespace NamePicker.ViewModels
 
         public GridViewDataSet<MeetupMember> Members { get; set; }
 
+        [Required]
         public string NewName { get; set; }
+
+        public string ErrorMessage { get; set; }
 
 	    public void AddName()
 	    {
@@ -42,7 +48,7 @@ namespace NamePicker.ViewModels
 
         public override Task PreRender()
         {
-            Members.LoadFromQueryable(Meetup.Members.Values.AsQueryable());
+            Members.LoadFromQueryable(Meetup.Members.Values.AsQueryable().OrderBy(m => m.Name));
             NewName = string.Empty;
 
             return base.PreRender();
