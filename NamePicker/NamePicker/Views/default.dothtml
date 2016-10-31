@@ -5,6 +5,9 @@
 <dot:Content ContentPlaceHolderID="SpaPlaceholder">
 
     <div class="starter-template">
-        <p>Some text</p>
+        <h1>MK .NET Meetup</h1>
+        <h2>Welcome!</h2>
+
+        <a href="https://github.com/AlistairClark7/MKDotVVM">Github Link</a>
     </div>
 </dot:Content>
