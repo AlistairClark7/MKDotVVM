@@ -22,6 +22,9 @@
     </div>
     <div class="row">
 
+        <dot:TextBox Text="{value: SuperSecretPassword}" /> (Super secret password)
+        <br/>
+        <br />
         <dot:TextBox Text="{value: NewName}" /> <dot:Button Text="Add Name" Click="{command: AddName()}"></dot:Button>
         <br/>
         <div style="color: red;">
