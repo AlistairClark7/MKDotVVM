@@ -8,16 +8,8 @@ using DotVVM.Framework.ViewModel;
 
 namespace NamePicker.ViewModels
 {
-    public class DefaultViewModel : DotvvmViewModelBase
+    public class DefaultViewModel : MasterPageViewModel
     {
-
-        public string Title { get; set; }
-
-
-        public DefaultViewModel()
-        {
-            Title = "Hello from DotVVM!";
-        }
 
     }
 }

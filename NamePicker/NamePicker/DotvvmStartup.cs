@@ -24,7 +24,7 @@ namespace NamePicker
             config.RouteTable.Add("Default", "", "Views/default.dothtml");
 
             // Uncomment the following line to auto-register all dothtml files in the Views folder
-            // config.RouteTable.AutoDiscoverRoutes(new DefaultRouteStrategy(config));    
+            config.RouteTable.AutoDiscoverRoutes(new DefaultRouteStrategy(config));    
         }
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
